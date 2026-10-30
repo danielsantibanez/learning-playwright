@@ -18,6 +18,10 @@ export class TodoPage {
     await this.inputBox.press("Enter");
   }
 
+  async getToDoItem(text: string): Promise<Locator> {
+    return this.todoItems.filter({ hasText: text });
+  }
+
   async remove(text: string) {
     const todo = this.todoItems.filter({ hasText: text });
     await todo.hover();
